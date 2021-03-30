@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //关键字
+    function abc(){
+        console.log("function关键字")
+    }
+    abc()
+    //函数表达式
+    //匿名函数 没有名称的函数
+    var fun = function (){
+        console.log("匿名函数")
+    }
+    fun()
+
+    //function  构造函数
+    var fun1 = new Function("x","y","return x+y")
+    var num = fun1(317,423)
+    console.log(num)
+
+    //函数声明提升
+    fun2()
+    function fun2(){
+        console.log("函数声明提升--1")
+    }
+    function fun2(){
+        console.log("函数声明提升--2")
+    }
+    //函数名+()
+    function test1(){
+        console.log(1)
+        // alert(1)
+    }
+    test1()
+
+                //形参
+    function add(a,b){
+        console.log(a*b)
+    }
+        //实参
+    add(317,423)
+
+    //值传递 基本类型
+    function add1(num){
+        return num++
+    }
+    var a = 123
+    add1(a)
+    console.log(a)//123
+
+    //值传递 引用类型
+    function add2(num){
+        num[0]++
+    }
+    var arr = [11]
+    add2(arr)
+    console.log(arr) //arr[0]的值是11
+    //打印结果是12
+
+    //函数的参数不是必须的
+    function add3(){
+        console.log(arguments)
+        return arguments[2] + arguments[1]
+    }
+    add3([1,24,135,251],513,"哈哈哈")
+    console.log(add3(1,24,5))
+
+    //函数的特殊用法
+    //1.作为返回值
+    function test2(){
+        function test3(a,b){
+            console.log("php")
+            console.log(a+b)
+        }
+        return test3
+    }
+    test2()(11,23)
+
+    //2.作为参数
+    function test4(){
+        console.log("作为参数")
+        var a = 123
+        var b = 234
+        test5(a,b)
+    }
+    function test5(num1,num2){
+        console.log(num1-num2)
+    }
+    test4(test5);
+
+    //立即执行参数
+    //1.(function (){})()
+        (function test6(){
+            console.log("立即执行--1")
+        })();
+    //2.(function(){}())
+        (function test7(){
+            console.log("立即执行--2")
+        }());
+</script>
+</body>
+</html>
