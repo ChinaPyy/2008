@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object</title>
+</head>
+<body>
+<script>
+    //获取对象原型的标准方法
+    var F = function (){};
+    var f = new F();
+    Object.getPrototypeOf(f) === F.prototype;//true
+
+    //空对象的原型
+    Object.getPrototypeOf({}) === Object.prototype;//true
+
+    //Object.prototype的原型是空 NULL
+    Object.getPrototypeOf(Object.prototype) === null;//true
+
+    //函数的原型是 Function.prototype
+    function k(){}
+    Object.getPrototypeOf(k) === Function.prototype;//true
+
+
+    var a = {};
+    var b = {x: 1};
+    //现有对象
+    Object.setPrototypeOf(a,b);
+    //原型对象
+    Object.getPrototypeOf(a) === b;//true
+    a.x //1
+
+    var T = function(){
+        this.f = 'bar';
+    };
+    var t =new T();
+    //等同于
+    // var t =Object.setPrototypeOf({},T.prototype);
+    T.call(t);
+
+    //原型对象
+    var A = {
+        print: function(){
+            console.log("hello")
+        }
+    };
+    //实例对象
+    var B = Object.create(A)
+    Object.getPrototypeOf(B) === A //true
+    B.print() //hello
+    B.print() === A.print() //true
+
+    //Object.create 可以被下面这个方法代替
+    if(typeof Object.create !== 'function'){
+        Object.create = function(obj){
+            function F(){}
+            F.prototype = obj;
+            return new F();
+        }
+    }
+
+    //Object.create 可以被下面这个方法代替
+    var obj1 = Object.create({});
+    var obj2 = Object.create(Object.prototype);
+    var obj3 = new Object();
+
+    var obj = Object.create(null)
+    obj.valueOf()
+
+    Object.create()
+    Object.create(123)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
