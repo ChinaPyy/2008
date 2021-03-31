@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+      //第一种方法
+      var Call = {}
+      Call.add = function (num1,num2){
+          return num1+num2
+      }
+      Call.minus = function (num1,num2){
+          return num1-num2
+      }
+      Call.multi = function (num1,num2){
+          return num1*num2
+      }
+      Call.divi = function (num1,num2){
+          return num1/num2
+      }
+      console.log(Call.add(1,2))
+      console.log(Call.minus(4,2))
+      console.log(Call.multi(5,2))
+      console.log(Call.divi(10,2))
+
+      //第二种方法
+      var calc = {
+          add: function(a,b){
+              console.log(a+b)
+              return a+b
+          },
+          minus:function(a,b){
+              console.log(a-b)
+              return a-b
+          },
+          multi:function(a,b){
+              console.log(a*b)
+              return a*b
+          },
+          divi:function(a,b){
+              console.log(a/b)
+              return a / b
+          }
+      }
+
+      var a = 100
+      var b = 200
+      calc.add(a,b)
+      calc.minus(a,b)
+      calc.multi(a,b)
+      calc.divi(a,b)
+</script>
+</body>
+</html>
