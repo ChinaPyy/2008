@@ -6,18 +6,25 @@
 </head>
 <body>
 <script>
-    function Animal(){
-        name : "猫";
-        environment : "会飞";
-    }
-    var q1 =new Animal()
-    console.log(q1.name)
-
-    // var Animal = {};
-    // Animal.prototype.name = "🐱猫";
-    // Animal.prototype.environment = "会飞";
-    // Animal = new Animal()
-
+    //第一个方法
+    function Animal(){}
+    //定义方法 给方法的原型添加一个属性
+    Animal.prototype.animal = "陆地动物"
+    //在创建一个方法
+    function Cat(){}
+    //new 一个 上个方法 赋值给当前方法的原型
+    Cat.prototype = new Animal()
+    //给这个原型 赋值属性
+    Cat.prototype.cat = "猫科动物"
+    var q1 = new Cat();
+    console.log(q1)
+    //再定义一个方法
+    function Tiger(){}
+    //在用上边的方法 再来一遍 这样 我们就能跟
+    //根据原型链接找到我们想要的值
+    var q2 = Tiger.prototype = new Cat()
+    Tiger.prototype.name = "东北虎"
+    console.log(q2)
 </script>
 </body>
 </html>

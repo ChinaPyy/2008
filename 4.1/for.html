@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button class="but">AAA</button>
+    <button class="but">BBB</button>
+    <button class="but">CCC</button>
+    <button class="but">DDD</button>
+    <button class="but">EEE</button>
+</body>
+<script>
+    window.onload = function() {
+        var but = document.querySelectorAll(".but")
+        for (var i = 0; i < but.length; i++) {
+            but[i].index = i
+            but[i].onclick = function () {
+                console.log(this.index)
+            }
+        }
+    }
+</script>
+</html>
