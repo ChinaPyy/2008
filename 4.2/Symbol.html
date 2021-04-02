@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //合并
+    
+    let obj1 = {
+        [Symbol("name")] : "张三",
+        [Symbol("age")]: 22,
+        [Symbol("sex")]: "X",
+        email: "zhangsan@qq.com",
+    }
+
+    let obj2 = {
+        [Symbol("name")]: "zhangsan",
+        [Symbol("age")]: 22,
+        [Symbol("sex")]: "M"
+    }
+    let oo = Object.assign(obj1,obj2)
+    console.log(oo)
+</script>
+</body>
+</html>
