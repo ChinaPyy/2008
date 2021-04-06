@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    const obj1 = {
+        name: "zhangsan",
+        age: 11,
+
+        get age(){
+            console.log("获取了")
+        },
+
+        set age(v){
+            console.log("新设置的值为: ", v)
+        }
+    }
+
+
+    obj1.age            // 读操作 触发 get
+    obj1.age = 567       // 写操作  触发 set
+</script>
