@@ -8,3 +8,17 @@
 
 </body>
 </html>
+<script>
+    let str1 = "Hello"
+    let str2 = []
+    str1 = str1.split('')
+    str1.reverse = function (){
+        for (let i = str1.length-1;i>=0;i--){
+            str2.push(str1[i])
+        }
+        str2 = str2.join('')
+        return str2
+    }
+    str1 = str1.reverse()
+    console.log(str1)
+</script>

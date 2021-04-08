@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    const obj1 = {
+        name: "zhangsan",
+        age: 11
+    }
+
+    const p1 = new Proxy(obj1,{
+        get(target,property){
+            //判断访问的属性是否在 对象中
+            if(property in target){
+                console.log(`${property}属性存在`)
+            }else{
+                console.log(`${property}属性不存在`)
+            }
+        }
+    })
+    p1.name
+    p1.sex
+</script>
