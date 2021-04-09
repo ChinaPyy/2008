@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../jquery.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    new Promise(function (resolve, reject){
+        $.ajax({
+            url: "http://vue.api.comcto.com/api/password1.php",
+            type: "get",
+            success: function (data){
+                resolve(data)
+            }
+        })
+    })
+</script>

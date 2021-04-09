@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // function ajax(url){
+    //     let xhr =new XMLHttpRequest()
+    //     xhr.onreadystatechange = function (){
+    //         if(xhr.readyState == 4 && xhr.status == 200){
+    //             xhr.responseText
+    //         }
+    //     }
+    //     xhr.open("get",url);
+    //     xhr.send()
+    // }
+    // ajax("http://vue.api.comcto.com/api/password1.php")
+    // ajax("http://vue.api.comcto.com/api/password2.php")
+    // ajax("http://vue.api.comcto.com/api/password3.php")
+    // ajax("http://vue.api.comcto.com/api/password4.php")
+
+    function ajax(url) {
+        $.ajax({
+            url: url,
+            type: "get",
+            async:false,
+            success: function (data){
+                console.log("密码："+data)
+            }
+        })
+    }
+    ajax("http://vue.api.comcto.com/api/password1.php")
+    ajax("http://vue.api.comcto.com/api/password2.php")
+    ajax("http://vue.api.comcto.com/api/password3.php")
+    ajax("http://vue.api.comcto.com/api/password4.php")
+</script>
