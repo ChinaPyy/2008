@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    // let object = {
+    //     name:"ckw",
+    //     age:11,
+    //     sex:"man"
+    // }
+    //
+    // function * obj() {
+    //     const keys = Object.keys(this)
+    //     for (let k of keys){
+    //         yield k
+    //     }
+    // }
+    // Object.prototype[Symbol.iterator] = obj
+    //
+    // for (let k of object){
+    //     console.log(k,object[k])
+    // }
+
+    function * it(){
+        yield "第一次"
+        yield "第二次"
+        yield "第三次"
+        yield "第四次"
+        yield "第五次"
+        yield "第六次"
+    }
+    let xt = it()
+    console.log(xt.next())
+    console.log(xt.next())
+    console.log(xt.next())
+    console.log(xt.next())
+    console.log(xt.next())
+    console.log(xt.next())
+    console.log(xt.next())
+</script>

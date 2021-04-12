@@ -7,10 +7,10 @@
 //     }
 // });
 
-//  引入数据方法
-// const axios = require("axios");
+ // 引入数据方法
+const axios = require("axios");
 // console.log(axios);
-// axios.get('http://vue.api.comcto.com/api/helloworld.php')
-//     .then(response => {
-//         console.log(response.data);
-//     })
+axios.get('http://vue.api.comcto.com/api/helloworld.php')
+    .then(response => {
+        console.log(response.data);
+    })

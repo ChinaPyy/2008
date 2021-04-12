@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="value in arr">{{value.name}} - {{value.age}}</li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	new Vue({
+		el:"#app",
+		data:{
+			arr:[{name:"张三",age:18},{name:"李四",age:19},{name:"王五",age:17}]
+		}
+	})
+</script>
