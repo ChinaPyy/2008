@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button-counter>11</button-counter>
+		</div>
+	</body>
+</html>
+<script>
+		Vue.component('button-counter',{
+			data:function(){
+				return {
+					counter:123
+				}
+			},
+			template:"<button v-on:click='add'> {{counter}} </button>",
+			methods:{
+				add(){
+					this.counter--
+				}
+			}
+		})
+		new Vue({
+			el:"#app",
+			
+		})
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<script src="../axios.min.js"></script>
+	<script src="../vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+		        <button v-on:click="but">点击获取数据</button>
+		        <ul>
+		            <li v-for="value in stu">
+		                ID: {{value.id}} - Name: {{value.name}} - Sex: {{value.sex}}
+		            </li>
+		        </ul>
+		</div>
+	</body>
+</html>
+<script>
+	 //使用 axios 请求后端接口，并使用 v-for 循环输出
+	        const app = new Vue({
+	            el: "#app",
+	            data: {
+	                stu: []     // 给个默认值
+	            },
+	            methods: {
+	                but(){      // button绑定的点击事件
+	                    const self = this
+	                    axios.get("http://vue.api.comcto.com/api/list.php").then(function(d){
+	                        console.log(d)
+	                        self.stu = d.data  // 修改 data中 stu
+	                    })
+	                }
+	            }
+	        })
+</script>
