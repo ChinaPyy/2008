@@ -26,11 +26,11 @@
 	            },
 	            methods: {
 	                but(){      // button绑定的点击事件
-	                    const self = this
-	                    axios.get("http://vue.api.comcto.com/api/list.php").then(function(d){
-	                        console.log(d)
-	                        self.stu = d.data  // 修改 data中 stu
-	                    })
+						const self = this
+						axios.get("http://vue.api.comcto.com/api/list.php").then(function(d){
+							console.log(d)
+							self.stu = d.data  // 修改 data中 stu
+						})
 	                }
 	            }
 	        })

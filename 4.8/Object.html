@@ -16,15 +16,15 @@
 
     //通过Proxy 拦截某些方法
     // get set defineProperty  deleteProperty
-    const p1 = new Proxy(obj1,{
+    const p1 = new Proxy(obj1, {
         // 拦截 get
-        get(target,property){
+        get(target, property) {
             console.log(target)
             console.log(property)
             //判断访问的属性是否在 对象中
-            if(property in target){
+            if (property in target) {
                 console.log(`${property}属性存在`)
-            }else{
+            } else {
                 console.log(`${property}属性不存在`)
             }
         },
@@ -34,7 +34,7 @@
         },
 
         //拦截 defineProperty方法
-        defineProperty: function(target, key, descriptor) {
+        defineProperty: function (target, key, descriptor) {
             console.log("禁止使用defineProperty方法")
             return true
         },
@@ -47,7 +47,7 @@
 
     delete p1.name          // 删除某个属性
     //通过 defineProperty方法自定义属性
-    Object.defineProperty(p1,"xxx",{
+    Object.defineProperty(p1, "xxx", {
         value: "abcde",
     })
     console.log(p1)

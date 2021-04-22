@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="" v-on:click.prevent="logo()">登录组件</a>
+        <a href="" v-on:click.prevent="zuci()">注册组件</a>
+        <logo-h1 v-if="islogo"></logo-h1>
+        <zuci-h1 v-if="iszuci"></zuci-h1>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component("logo-h1",{
+        template:"<h1>登录</h1>"
+    })
+    Vue.component("zuci-h1",{
+        template: "<h1>注册</h1>"
+    })
+    new Vue({
+        el:"#app",
+        data:{
+            islogo:false,
+            iszuci:false,
+        },
+        methods:{
+            logo(){
+                this.iszuci=false
+                this.islogo=true
+            },
+            zuci(){
+                this.islogo=false
+                this.iszuci=true
+            }
+        }
+    })
+
+</script>

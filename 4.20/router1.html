@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>嵌套</title>
+</head>
+<script src="../vue.js"></script>
+<script src="../vue-router.js"></script>
+<body>
+    <div id="app">
+        <router-link to="/user/login">登录</router-link>
+        <router-link to="/user/reg">注册</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+</html>
+<script>
+    const index = {
+        template:`
+        <h1>首页</h1>
+        `
+    }
+    const Login = {
+        template:`
+        <div>
+        <h1>登录</h1>
+        <button @click="SY">首页</button>
+        </div>
+        `,
+        methods: {
+            SY(){
+                this.$router.push("/user")
+            }
+        }
+    }
+    const Reg = {
+        template:`
+        <div>
+        <h1>注册</h1>
+        <router-link to="/user/reg/mobile">账号注册</router-link>
+        <router-link to="/user/reg/email">邮箱注册</router-link><br>
+        <router-view></router-view><br>
+        <button @click="SYY">上一页</button>
+        </div>
+        `,
+        methods:{
+            SYY(){
+                this.$router.go(-1)
+            }
+        }
+    }
+    const RegMobile = {
+        template:`
+            <input type="text" placeholder="账号登录">
+        `
+    }
+    const RegEmail = {
+        template:`
+            <input type="text" placeholder="邮箱登录">
+        `
+    }
+    const routes = [
+        {path: "/user",component: index},
+        {path:"/user/login",component:Login},
+        {path:"/user/reg",component:Reg,children:[
+            {path:"/user/reg/mobile",component:RegMobile},
+            {path:"/user/reg/email",component:RegEmail}
+            ]
+        },
+    ]
+    const router = new VueRouter({
+        routes:routes
+    })
+    new Vue({
+        el:"#app",
+        data:{
+
+        },
+        router:router
+    })
+</script>

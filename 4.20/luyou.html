@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由</title>
+    <script src="../vue.js"></script>
+    <script src="../vue-router.js"></script>
+</head>
+<body>
+    <div id="app" align="center">
+        <router-link to="/user/1">法外狂徒</router-link>
+        <router-link to="/user/2">尼古拉斯</router-link>
+        <router-link to="/user/3">艾欧尼亚</router-link>
+        <hr>
+        <router-view></router-view>
+    </div>
+</body>
+</html>
+
+<script>
+    // const FWKT = {
+    //     template:`
+    //     <h1>张三</h1>
+    //     `
+    // }
+    // const NGLS = {
+    //     template:`
+    //     <h1>赵四</h1>
+    //     `
+    // }
+    // const AONY = {
+    //     template:`
+    //     <h1>卡莎</h1>
+    //     `
+    // }
+
+    // const UserX = {
+    //     template:`<span>用户ID：{{$route.params.id}}</span>`
+    // }
+
+    // const UserX = {
+    //     props: ['id'],
+    //     template:`<span>用户ID：{{id}}</span>`
+    // }
+
+    const UserX = {
+        props: ['id','name','age'],
+        template: `
+        <p>{{id}} - {{name}} - {{age}}</p>
+        `
+    }
+
+    let routes=[
+        // {path:"/user/1",component: FWKT},
+        // {path:"/user/2",component: NGLS},
+        // {path:"/user/3",component: AONY},
+
+        // {path:"/user/:id",component: UserX},
+
+        // {path:"/user/:id",component: UserX,props:true},
+
+        {
+            path:"/user/:id",
+            component:UserX,
+            //通过props传参 id失效
+            props:{name:"zhangsan",age:11},
+            // 或者使用  route 函数
+            props: route =>({name:"zhangsan",age:11,id:route.params.id}),
+        }
+    ]
+
+    let router = new VueRouter({
+        routes
+    })
+    new Vue({
+        el:"#app",
+        router:router,
+    })
+</script>

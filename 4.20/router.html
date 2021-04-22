@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由</title>
+    <script src="../vue.js"></script>
+    <script src="../vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/user/Login">登录</router-link>
+        <router-link to="/user/Reg">注册</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+</html>
+<script>
+    const index = {
+        template:`
+        <h1>首页</h1>
+        `
+    }
+    const Login = {
+        template:`
+        <div>
+        <h1>登录</h1>
+        <button @click="SY">首页</button>
+        </div>
+        `,
+        methods: {
+            SY(){
+                this.$router.push("/user")
+            }
+        }
+    }
+    const Reg = {
+        template:`
+        <div>
+        <h1>注册</h1>
+        <button @click="SYY">上一页</button>
+        </div>
+        `,
+        methods:{
+            SYY(){
+                this.$router.go(-1)
+            }
+        }
+    }
+    const routes = [
+        {path: "/user",component: index},
+        {path:"/user/login",component:Login},
+        {path:"/user/reg",component:Reg},
+    ]
+    const router = new VueRouter({
+        routes:routes
+    })
+    new Vue({
+        el:"#app",
+        data:{
+
+        },
+        router:router
+    })
+</script>
